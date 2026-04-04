@@ -1,0 +1,32 @@
+{
+ "name": "Order Inbox",
+ "doctype": "DocType",
+ "module": "AI Order Manager",
+ "is_submittable": 0,
+ "track_changes": 1,
+ "fields": [
+  {"fieldname": "sender_name",    "label": "Sender Name",       "fieldtype": "Data",      "in_list_view": 1},
+  {"fieldname": "sender_contact", "label": "Phone / Email",     "fieldtype": "Data",      "in_list_view": 1},
+  {"fieldname": "channel",        "label": "Channel",           "fieldtype": "Select",    "options": "WhatsApp\nEmail\nInstagram\nLinkedIn\nTwitter\nOther", "in_list_view": 1},
+  {"fieldname": "received_at",    "label": "Received At",       "fieldtype": "Datetime",  "in_list_view": 1},
+  {"fieldname": "col_break_1",    "fieldtype": "Column Break"},
+  {"fieldname": "status",         "label": "Status",            "fieldtype": "Select",    "options": "Pending\nAI Processed\nSO Created\nRejected\nError", "in_list_view": 1},
+  {"fieldname": "is_order",       "label": "Is Order?",         "fieldtype": "Check"},
+  {"fieldname": "ai_confidence",  "label": "AI Confidence",     "fieldtype": "Float"},
+  {"fieldname": "sales_order",    "label": "Sales Order",       "fieldtype": "Link",      "options": "Sales Order"},
+  {"fieldname": "section_msg",    "label": "Message",           "fieldtype": "Section Break"},
+  {"fieldname": "message_text",   "label": "Message Text",      "fieldtype": "Long Text"},
+  {"fieldname": "section_ai",     "label": "AI Analysis",       "fieldtype": "Section Break"},
+  {"fieldname": "ai_result",      "label": "AI Extracted Data", "fieldtype": "Code",      "options": "JSON"},
+  {"fieldname": "error_log",      "label": "Error Log",         "fieldtype": "Small Text"},
+  {"fieldname": "section_raw",    "label": "Raw Payload",       "fieldtype": "Section Break", "collapsible": 1},
+  {"fieldname": "raw_payload",    "label": "Raw Payload",       "fieldtype": "Code",      "options": "JSON"}
+ ],
+ "permissions": [
+  {"role": "Sales User",    "read": 1, "write": 1},
+  {"role": "Sales Manager", "read": 1, "write": 1, "delete": 1}
+ ],
+ "title_field": "sender_name",
+ "sort_field": "received_at",
+ "sort_order": "DESC"
+}

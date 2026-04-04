@@ -1,0 +1,32 @@
+{
+ "name": "AI Order Settings",
+ "doctype": "DocType",
+ "issingle": 1,
+ "module": "AI Order Manager",
+ "fields": [
+  {"fieldname": "section_ai",               "label": "AI Configuration",      "fieldtype": "Section Break"},
+  {"fieldname": "anthropic_api_key",        "label": "Anthropic API Key",     "fieldtype": "Password", "description": "Get from console.anthropic.com"},
+  {"fieldname": "auto_create_threshold",    "label": "Auto-Create SO Threshold (0-1)", "fieldtype": "Float", "default": "0.75", "description": "AI confidence above this → auto create SO"},
+  {"fieldname": "default_item_code",        "label": "Default Item Code",     "fieldtype": "Link",     "options": "Item", "description": "Used when AI cannot match item name to ERPNext item"},
+
+  {"fieldname": "section_wa",               "label": "WhatsApp Business API", "fieldtype": "Section Break"},
+  {"fieldname": "whatsapp_verify_token",    "label": "Verify Token",          "fieldtype": "Data",     "description": "Any secret string you set in Meta dashboard"},
+  {"fieldname": "whatsapp_app_secret",      "label": "App Secret",            "fieldtype": "Password"},
+  {"fieldname": "whatsapp_phone_number_id", "label": "Phone Number ID",       "fieldtype": "Data"},
+  {"fieldname": "whatsapp_access_token",    "label": "Access Token",          "fieldtype": "Password"},
+
+  {"fieldname": "section_ig",               "label": "Instagram / Facebook",  "fieldtype": "Section Break"},
+  {"fieldname": "instagram_verify_token",   "label": "Verify Token",          "fieldtype": "Data"},
+  {"fieldname": "instagram_access_token",   "label": "Page Access Token",     "fieldtype": "Password"},
+
+  {"fieldname": "section_email",            "label": "Email Polling (IMAP)",  "fieldtype": "Section Break"},
+  {"fieldname": "email_polling_enabled",    "label": "Enable Email Polling",  "fieldtype": "Check"},
+  {"fieldname": "polling_email",            "label": "Email Address",         "fieldtype": "Data"},
+  {"fieldname": "polling_email_password",   "label": "App Password",          "fieldtype": "Password", "description": "Use Gmail App Password, not your main password"},
+  {"fieldname": "imap_host",               "label": "IMAP Host",             "fieldtype": "Data",     "default": "imap.gmail.com"},
+  {"fieldname": "imap_port",              "label": "IMAP Port",             "fieldtype": "Int",      "default": "993"}
+ ],
+ "permissions": [
+  {"role": "System Manager", "read": 1, "write": 1}
+ ]
+}
